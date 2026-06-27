@@ -6,10 +6,10 @@ export default function Formulario({ guardar }) {
     const hanlderSubmit = (e) => {
         e.preventDefault();
 
-        const id = (new Date()).getTime();
+        const id = (new Date()).getTime();//agarra un segundo y sus milecimas para ponerle un id, alpedo esta esto aca
 
         guardar({ ...tarea, id });
-    }
+    }//
 
     return (
         <div className="Formulario">

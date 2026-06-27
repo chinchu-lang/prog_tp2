@@ -25,7 +25,6 @@ export default function App() {
     }
 
     const [filtro, setFiltro] = useState("todas");
-
     const tareasFiltradas = filtro === "todas" ? tareas : tareas.filter((t) => t.categoria === filtro);
 
     return (
