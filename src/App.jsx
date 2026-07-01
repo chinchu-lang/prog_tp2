@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Router, Route, Switch } from 'wouter'
 import Header from "./componentes/Header";
-import ListadoDeTareas from "./componentes/Tarea"
+import Tarea from "./componentes/Tarea"
 import Formulario from "./componentes/Formulario"
 import "./App.css"
 
@@ -22,7 +22,7 @@ export default function App() {
                     </Route>
 
                     <Route path="/listado">
-                         <ListadoDeTareas />
+                         <Tarea />
                     </Route>
 
                     <Route path="/">
