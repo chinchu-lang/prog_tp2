@@ -67,14 +67,16 @@ export default function Tarea() {
                 {tareas && tareas.map((tarea) => (
 
                     <Tarjeta
-                        key={tarea.id}
-                        titulo={tarea.nombre}
-                        descripcion={tarea.descripcion}
-                        categoria={tarea.categoria}
-                        prioridad={prioridades[tarea.prioridad]}
-                        estado={tarea.estado}
-                        eliminar={() => eliminar(tarea.id)}
-                    />
+    key={tarea.id}
+    id={tarea.id}
+    titulo={tarea.nombre}
+    descripcion={tarea.descripcion}
+    categoria={tarea.categoria}
+    prioridad={prioridades[tarea.prioridad]}
+    estado={tarea.estado}
+    eliminar={() => eliminar(tarea.id)}
+    actualizar={actualizar}
+/>
 
                 ))}
 
