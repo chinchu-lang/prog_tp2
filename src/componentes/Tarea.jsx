@@ -5,7 +5,8 @@ import Tarjeta from "./Tarjeta";
 export default function Tarea() {
 
     const [tareas, setTareas] = useState([]);
-
+    const [categoria, setCategoria] = useState("");
+    const [orden, setOrden] = useState("ASC");
     const actualizar = () => {
 
         const url = "https://api-tareas.ctpoba.edu.ar/api/tareas";
@@ -13,6 +14,10 @@ export default function Tarea() {
         const config = {
             headers: {
                 Authorization: '48191403'
+            },
+            params: {
+                categoria: categoria,
+                orden: orden
             }
         };
 
@@ -29,7 +34,7 @@ export default function Tarea() {
 
     useEffect(() => {
         actualizar();
-    }, []);
+    }, [categoria, orden]);
 
     const eliminar = (tarea_id) => {
 
@@ -55,32 +60,57 @@ export default function Tarea() {
     };
 
     const prioridades = {
-        1: "urgente",
+        1: "URGENTE",
         2: "importante",
         3: "leve"
     };
 
     return (
-        <div style={{ flex: 3 }}>
-            <div className="ListadoDeTareas">
+    <div className="ContenedorTareas">
 
-                {tareas && tareas.map((tarea) => (
+        <div className="Filtros">
 
-                    <Tarjeta
-    key={tarea.id}
-    id={tarea.id}
-    titulo={tarea.nombre}
-    descripcion={tarea.descripcion}
-    categoria={tarea.categoria}
-    prioridad={prioridades[tarea.prioridad]}
-    estado={tarea.estado}
-    eliminar={() => eliminar(tarea.id)}
-    actualizar={actualizar}
-/>
+            <h1>Filtros</h1>
 
-                ))}
+            <select
+                value={categoria}
+                onChange={(e) => setCategoria(e.target.value)}
+            >
+                <option value="">Todas las categorías</option>
+                <option value="hogar">Hogar</option>
+                <option value="escuela">Escuela</option>
+                <option value="trabajo">Trabajo</option>
+                <option value="particular">Particular</option>
+            </select>
 
-            </div>
+            <select
+                value={orden}
+                onChange={(e) => setOrden(e.target.value)}
+            >
+                <option value="ASC">Mayor prioridad</option>
+                <option value="DESC">Menor prioridad</option>
+            </select>
+
         </div>
-    );
+
+        <div className="ListadoDeTareas">
+
+            {tareas.map((tarea) => (
+                <Tarjeta
+                    key={tarea.id}
+                    id={tarea.id}
+                    titulo={tarea.nombre}
+                    descripcion={tarea.descripcion}
+                    categoria={tarea.categoria}
+                    prioridad={prioridades[tarea.prioridad]}
+                    estado={tarea.estado}
+                    eliminar={() => eliminar(tarea.id)}
+                    actualizar={actualizar}
+                />
+            ))}
+
+        </div>
+
+    </div>
+);
 }

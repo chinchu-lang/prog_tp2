@@ -1,5 +1,102 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap');
 
+/* ── Inicio ── */
+
+.Inicio {
+  max-width: 700px;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+/* ── Error 404 ── */
+
+.Error404 {
+  max-width: 700px;
+  margin: 5rem auto;
+  text-align: center;
+}
+
+.Error404 h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 8rem;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.Error404 h2 {
+  font-size: 2rem;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.Error404 p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 0.8rem;
+}
+
+.Inicio h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.Inicio p {
+  color: var(--text);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* ── Header ── */
+
+.wouter {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* ── Footer ── */
+
+.Footer {
+  margin-top: 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.Footer p:first-child {
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.Copyright {
+  margin-top: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-transform: lowercase;
+}
+
+.opcion {
+  text-decoration: none;   /* Quita el subrayado */
+  color: var(--accent);    /* Amarillo igual que los títulos */
+  transition: opacity 0.2s;
+}
+
+.opcion:hover {
+  opacity: 0.8;
+}
+
+.opcion h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  font-weight: normal;
+  color: inherit;
+}
+
 :root {
   --bg: #0f0f0f;
   --surface: #1a1a1a;
@@ -12,8 +109,8 @@
   --leve-bg: #052e16;
   --importante: #facc15;
   --importante-bg: #1c1700;
-  --urgente: #f87171;
-  --urgente-bg: #2d0b0b;
+  --URGENTE: #f87171;
+  --URGENTE-bg: #2d0b0b;
 
   --accent: #e0ff4f;
 
@@ -40,6 +137,10 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .App > h1 {
@@ -211,6 +312,53 @@ body {
   line-height: 1;
 }
 
+.Filtros h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 1.2rem;
+}
+
+.Filtros select {
+  width: 100%;
+  margin-bottom: 1rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  padding: 0.65rem 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.Filtros select:focus {
+  border-color: var(--accent);
+}
+
+.Filtros select option {
+  background: var(--surface2);
+}
+
+/* Contenedor de filtros y tarjetas */
+
+.ContenedorTareas {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem; /* separación entre filtros y tarjetas */
+}
+
+/* El listado ocupa todo el espacio restante */
+
+.ListadoDeTareas {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
 /* ── Listado ── */
 .ListadoDeTareas {
   display: flex;
@@ -243,7 +391,7 @@ body {
 /* ── Colores de prioridad (border completo) ── */
 .Tarjeta.leve      { border-color: var(--leve); }
 .Tarjeta.importante { border-color: var(--importante); }
-.Tarjeta.urgente   { border-color: var(--urgente); }
+.Tarjeta.URGENTE   { border-color: var(--URGENTE); }
 
 /* Badge de prioridad */
 .Tarjeta h1 {
@@ -260,7 +408,7 @@ body {
 
 .Tarjeta.leve h1       { background: var(--leve-bg);       color: var(--leve); }
 .Tarjeta.importante h1 { background: var(--importante-bg); color: var(--importante); }
-.Tarjeta.urgente h1    { background: var(--urgente-bg);    color: var(--urgente); }
+.Tarjeta.URGENTE h1    { background: var(--URGENTE-bg);    color: var(--urgente); }
 
 .Tarjeta h2 {
   font-size: 1rem;
@@ -328,8 +476,8 @@ body {
 }
 
 .Eliminar:hover {
-  color: var(--urgente);
-  border-color: var(--urgente);
+  color: var(--URGENTE);
+  border-color: var(--URGENTE);
 }
 
 /* ── Responsive ── */

@@ -17,7 +17,7 @@ export default function Formulario() {
         };
 
         const prioridades = {
-            urgente: 1,
+            URGENTE: 1,
             importante: 2,
             leve: 3
         };
@@ -43,7 +43,7 @@ export default function Formulario() {
 
     return (
         <div className="Formulario">
-            <h1>Componente Formulario</h1>
+            <h1>Formulario: Creador de tareas</h1>
 
             <form onSubmit={hanlderSubmit}>
 
